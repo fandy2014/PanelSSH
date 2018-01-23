@@ -1,19 +1,23 @@
-• Instalação
+â€¢ InstalaÃ§Ã£o
 
------------------------------> ATENÇÃO IMPORTANTE
-• Sempre que solicitado [Y/N] escolha a opção Y (Sim para Todos).   
-• Sempre que solicitado digite sempre a mesma senha de sua preferencia para o PHPmyadmin e Apache caso solicite (letras e numeros, não use caracteres especiais ou espaço)  
-• Para a seleção do servidor, escolha apache2.
-• Selecione Sim quando perguntado se deseja usar dbconfig-common para configurar o banco de dados.  
+-----------------------------> ATENÃ‡ÃƒO IMPORTANTE
+â€¢ Sempre que solicitado [Y/N] escolha a opÃ§Ã£o Y (Sim para Todos).   
+â€¢ Sempre que solicitado digite sempre a mesma senha de sua preferencia para o PHPmyadmin e Apache caso solicite (letras e numeros, nÃ£o use caracteres especiaâ€¢ Instalasi
 
-• Sistemas Funcionais: Debian 8+ Ubuntu 16+
+-----------------------------> CATATAN PENTING
+â€¢ Saat diminta [Y / N], pilih Y (Ya untuk Semua).
+â€¢ Selalu masukkan kata sandi yang sama pilihan Anda untuk PHPmyadmin dan Apache kapan pun Anda meminta (huruf dan angka, jangan gunakan karakter khusus atau spasi)
+â€¢ Untuk pemilihan server, pilih apache2.
+â€¢ Pilih Ya saat ditanya apakah Anda ingin menggunakan dbconfig-umum untuk mengkonfigurasi database.
 
-1 - Vamos instalar o Apache Para o Site Funcionar na VPS
+â€¢ Sistem Fungsional: Debian 8+ Ubuntu 16+
 
-• Instalação Manual na VPS DO Painel (Site + BD) (OBS Para vps limpa sem apache):
+1 - Mari Instal Apache Untuk Situs untuk Bekerja di VPS
 
-Digite os Comandos 1 por 1 e aguarde instalar essa instalação é mais precisa pois se ocorrer erro você saberá em qual parte foi.
-• QUANDO SOLICITAR A SENHA DO PHPMYADMIN E MYSQL COLOQUE A MESMA EM AMBOS
+â€¢ Instalasi Manual di Panel DO VPS (Situs + BD) (OBS Untuk vps yang bersih tanpa apache):
+
+Masukkan perintah 1 oleh 1 dan tunggu pemasangan instalasi ini lebih akurat karena jika Anda membuat kesalahan Anda akan tahu di bagian mana itu.
+â€¢ KETIKA MEMINTA PHPMYADMIN DAN MYSQL PASSWORD TEMPAT PASSWORD DI KEDUA) 
 apt-get update && apt-get upgrade -y
 apt-get install curl -y
 apt-get install apache2 -y
@@ -32,100 +36,99 @@ php -m |grep ssh2
 apt-get install php5-curl
 service apache2 restart
 
-• Agora pelo Gerenciador de Pastas do Bitvise ou o Gerenciador da VPS Que você utiliza volte para o /root:
-• Navegue até a pasta /var/www/html e passe os arquivos do site da Pasta Site
+â€¢ Sekarang oleh Pengelola Folder Bitvise atau Manajer VPS yang Anda gunakan kembali ke / root:
+â€¢ Arahkan ke folder / var / www / html dan lewati file dari situs Folder Situs
 
 
-• Continue somente apos aparecer a mensagem COMPLETADO COM SUCESSO.  (no caso da instalação automatica)
+â€¢ Lanjutkan hanya setelah pesan DILENGKAPI KESUKSESAN. (dalam kasus instalasi otomatis)
 
-Digite service apache2 restart
+Ketik service apache2 restart
 
-2 - Criar o Banco de Dados SSH (para armazenar os dados do painel e do Site e tornar funcional)
+2 - Buat Database SSH (untuk menyimpan data panel dan Situs dan membuatnya berfungsi)
 
-• Altere o comando abaixo trocando SUA_SENHA pela senha que voce esta utilizando, o -p deve ficar junto a sua senha sem espaço.
- 
-• Caso você tenha usado caracteres especiais nesta parte o comando dará erro.
+â€¢ Ubah perintah di bawah ini dengan mengubah SUA_SENHA untuk kata kunci yang Anda gunakan, -p harus dengan kata kunci Anda tanpa spasi.
+Â 
+â€¢ Jika Anda telah menggunakan karakter khusus di bagian ini, perintah akan gagal.
 
-• OBS: A Senha que você definiu no PHPMYADMIN e MYSQL quando solicitados nos comandos acima   
- 
-mysql -h localhost -u root -pSUA_SENHA -e "CREATE DATABASE ssh"  
- 
+â€¢ OBS: Password yang Anda set di PHPMYADMIN dan MYSQL saat diminta dalam perintah di atas
+Â 
+mysql -h localhost -u root -pSUA_SENHA -e "CREATE DATABASE ssh"
+Â 
 service apache2 restart
  
-3 - Configurar arquivo de acesso ao Banco de Dados  
+3 - Mengkonfigurasi file akses database
 nano /var/www/html/pages/system/pass.php
 
-• Ou Edite o arquivo no seu computador pela senha do seu PHPMYADMIN definido acima
- 
-• O comando edita pass.php caso tenha instalado o nano caso contrario digite apt-get install nano no servidor
+â€¢ Atau Edit file di komputer Anda dengan kata sandi PHPMYADMIN Anda yang didefinisikan di atas
+Â 
+â€¢ Perintah edit pass.php jika Anda menginstal nano jika tidak, masukkan apt-get install nano di server
 
-<?php $pass = 'SUA_SENHA';?> < Essa parte do arquivo Pass.php deve ser trocada SUA_SENHA Pela sua senha do PHPMYADMIN
+<? php $ pass = 'SUA_SENHA';?> <Bagian dari file Pass.php ini harus diubah SUA_SENHA Dengan kata sandi PHPMYADMIN Anda
 
-• Copie o codigo acima e cole na edição do arquivo pass.php caso o mesmo não tenha nada
+â€¢ Copy kode diatas dan paste di edit file pass.php jika tidak ada
 
-• Apos colar o comando aperte Ctrl+X e escola opção Y depois aperte Enter para salvar
+â€¢ Setelah menempelkan perintah tekan Ctrl + X dan pilihan sekolah Y lalu tekan Enter untuk menyimpan
 
-4 - Configurar Tabelas do Banco de Dados
- 
-• Acesse o IP da sua VPS/phpmyadmin e entre com o usuario root e a senha que você definiu na instalação.
+4 - Mengkonfigurasi Tabel Basis Data
+Â 
+â€¢ Akses IP VPS / phpmyadmin Anda dan masukkan pengguna root dan kata kunci yang Anda tetapkan dalam instalasi.
 
-• Faça upload do arquivo ssh.sql no banco SSH 
+â€¢ Upload file ssh.sql ke database SSH
 
-5 - Configurarando comando de Agendamento Crontab 
+5 - Mengkonfigurasi Perintah Jadwal Crontab
 
-• Para funcionar online contas free e pagas e deletar usuarios dos servidores que você cadastrar no painel
+â€¢ Bekerja dengan akun online gratis dan berbayar dan menghapus pengguna dari server yang Anda daftarkan di panel
 
-Dentro da VPS digite crontab -e
+Di dalam tipe crontab VPS -e
 
-• Apos inserir o comando acima vai abrir um documento para edição, copie o texto abaixo
- 
-ESCOLHA A OPÇÃO NANO
+â€¢ Setelah memasukkan perintah di atas akan membuka dokumen untuk diedit, salin teks di bawah ini
+Â 
+PILIH OPSI NANO
 
-* * * * * /usr/bin/php /var/www/html/pages/system/cron.php
-* * * * * /usr/bin/php /var/www/html/pages/system/cron.ssh.php
-* * * * * /usr/bin/php /var/www/html/pages/system/cron.sms.php
-* * * * * /usr/bin/php /var/www/html/pages/system/cron.online.ssh.php
-10 * * * * /usr/bin/php /var/www/html/pages/system/cron.servidor.php
+* * * * * / usr / bin / php /var/www/html/pages/system/cron.php
+* * * * * / usr / bin / php /var/www/html/pages/system/cron.ssh.php
+* * * * * / usr / bin / php /var/www/html/pages/system/cron.sms.php
+* * * * * / usr / bin / php /var/www/html/pages/system/cron.online.ssh.php
+10 * * * * / usr / bin / php /var/www/html/pages/system/cron.server.php
 
-• Entendendo o Agendador de tarefas (Crontab) 
-Cada * Significa que o servidor executará a todo momento o arquivo php com os codigos para atualização de contas,online apagar
-o primeiro é minuto,hora,dia do mês,mês e dia da semana por exemplo o ultimo o script cron.servidor.php rodará a cada 10 minutos de todos os dias e todos os mêses de todas semanas.
-Você pode alterar por sua conta e risco o agendamento.
+â€¢ Memahami Task Scheduler (Crontab)
+Masing-masing * Berarti server akan menjalankan file php setiap saat dengan kode untuk mengupdate akun, online delete
+yang pertama adalah menit, jam, hari dalam bulan, bulan dan hari minggu misal script cron.server.php yang terakhir akan berjalan setiap 10 menit setiap hari dan setiap bulan setiap minggu.
+Anda bisa mengubah jadwal dengan risiko Anda sendiri.
 
-• Apos colar o comando aperte Ctrl+X e escola opção Y depois aperte Enter para salvar novamente
+â€¢ Setelah menempelkan perintah tekan Ctrl + X dan pilihan sekolah Y lalu tekan Enter untuk menyimpannya kembali
 
-6 - Alterando a Data e a Hora do servidor para o Brasil
- 
-dpkg-reconfigure tzdata  
+6 - Mengubah Tanggal dan Waktu Server untuk Brasil
+Â 
+dpkg-reconfigure tzdata
 
-• Escolher opção America e depois São Paulo.  
- 
+â€¢ Pilih opsi America dan kemudian SÃ£o Paulo.
+Â 
 service apache2 restart
 
 
 
 ---------------> FINAL
- 
-• Pronto agora seu painel+site ja esta pronto, voce pode logar da seguinte forma:  IP_DOMINIO-VPS/admin/  Usuario: admin  Senha: admin
- 
-• Voce pode alterar os dados de login em configurações no painel de gerenciamento.
- 
-• Lembrando que ainda falta configurar a VPS que sera o servidor ssh. O painel pre-configura o servidor mas e preciso executar outros comandos
+Â 
+â€¢ Siap sekarang panel + website anda sudah siap, anda bisa login sebagai berikut: IP_DOMINIO-VPS / admin / User: admin Password: admin
+Â 
+â€¢ Anda dapat mengubah data login di setting di panel manajemen.
+Â 
+â€¢ Ingat bahwa Anda masih harus mengkonfigurasi VPS yang akan menjadi server ssh. Panel pre-configure server tapi perlu untuk menjalankan perintah lainnya
 
-VPSManager PHREACK 56 NO SERVER QUE SERÁ O SERVIDOR DE SSH
+VPSManager PHREACK 56 SERVER TIDAK AKAN SERVER SSH
 
-• Aponte um dominio ao Gerenciador de DNS Da sua VPS para poder acessar através do dominio
+â€¢ Arahkan domain ke DNS Manager VPS Anda untuk dapat mengakses melalui domain
 
-OBSERVAÇÃO : 
+CATATAN:
+â€¢ DÃª PermissÃ£o 777 nas seguintes pastas para o upload funcionar e nÃ£o ficar em branco (Pelo bitvise sÃ³ apertar botÃ£o direito na pasta e permissÃµes)
 
-• Dê Permissão 777 nas seguintes pastas para o upload funcionar e não ficar em branco (Pelo bitvise só apertar botão direito na pasta e permissões)
+seudominio.com/admin/pages/bandeiras < permisÃ£o 777 pra ler executar e alterar
+seudominio.com/admin/pages/faturas/comprovantes < permisÃ£o 777 pra ler executar e alterar
+seudominio.com/admin/pages/downloads < permisÃ£o 777 pra ler executar e alterar
+seudominio.com/admin/pages/servidor/ovpn < permisÃ£o 777 pra ler executar e alterar
 
-seudominio.com/admin/pages/bandeiras < permisão 777 pra ler executar e alterar
-seudominio.com/admin/pages/faturas/comprovantes < permisão 777 pra ler executar e alterar
-seudominio.com/admin/pages/downloads < permisão 777 pra ler executar e alterar
-seudominio.com/admin/pages/servidor/ovpn < permisão 777 pra ler executar e alterar
-
-• Aumentando UPLOAD para arquivos e apks maiores que 2MB
+â€¢ Aumentando UPLOAD para arquivos e apks maiores que 2MB
 
 procure no php.ini 
 upload_max_filesize
@@ -133,11 +136,11 @@ post_max_size
 
 com ctrl+w e aumente para 128mb cada
 
-• Para procurar o php.ini mais facil utilize esse comando
+â€¢ Para procurar o php.ini mais facil utilize esse comando
 
 nano `locate -r 'php.ini$'`
 
-Pronto parabéns pela compra do Melhor Painel SSH Disponivel:
+Pronto parabÃ©ns pela compra do Melhor Painel SSH Disponivel:
 
 Sistemas implementados
 SubRevenda
@@ -147,7 +150,7 @@ Instalador Automatico
 Suporte a OPENVPN
 Tickets de suporte e Muito mais !
 
-Correçao adicionar servidor em branco
+CorreÃ§ao adicionar servidor em branco
 
 apt-get install libssh2-php && /etc/init.d/apache2 restart
 
