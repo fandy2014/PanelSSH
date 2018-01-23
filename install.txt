@@ -1,9 +1,4 @@
-• Instalação
-
------------------------------> ATENÇÃO IMPORTANTE
-• Sempre que solicitado [Y/N] escolha a opção Y (Sim para Todos).   
-• Sempre que solicitado digite sempre a mesma senha de sua preferencia para o PHPmyadmin e Apache caso solicite (letras e numeros, não use caracteres especia• Instalasi
-
+• Installasi
 -----------------------------> CATATAN PENTING
 • Saat diminta [Y / N], pilih Y (Ya untuk Semua).
 • Selalu masukkan kata sandi yang sama pilihan Anda untuk PHPmyadmin dan Apache kapan pun Anda meminta (huruf dan angka, jangan gunakan karakter khusus atau spasi)
@@ -43,7 +38,6 @@ cd /var/www/html
 git init
 git remote add origin https://github.com/fandy2014/PanelSSH.git
 git pull origin master
-chmod 777 /home/vps/public_html/application/config/database.php
 
 • Lanjutkan hanya setelah pesan DILENGKAPI KESUKSESAN. (dalam kasus instalasi otomatis)
 
@@ -127,35 +121,34 @@ VPSManager PHREACK 56 SERVER TIDAK AKAN SERVER SSH
 
 CATATAN:
 • Dê Permissão 777 nas seguintes pastas para o upload funcionar e não ficar em branco (Pelo bitvise só apertar botão direito na pasta e permissões)
+chmod 777 /var/www/html/admin/pages/bandeiras < permisão 777 pra ler executar e alterar
+chmod 777 /var/www/html/admin/pages/faturas/comprovantes < permisão 777 pra ler executar e alter
+chmod 777 /var/www/html/admin/pages/downloads < permisão 777 pra ler executar e alterar
+chmod 777 /var/www/html/admin/pages/servidor/ovpn < permisão 777 pra ler executar e alterar
 
-seudominio.com/admin/pages/bandeiras < permisão 777 pra ler executar e alterar
-seudominio.com/admin/pages/faturas/comprovantes < permisão 777 pra ler executar e alterar
-seudominio.com/admin/pages/downloads < permisão 777 pra ler executar e alterar
-seudominio.com/admin/pages/servidor/ovpn < permisão 777 pra ler executar e alterar
-
-• Aumentando UPLOAD para arquivos e apks maiores que 2MB
+• Meningkatkan UPLOAD untuk file dan apks lebih besar dari 2MB
 
 procure no php.ini 
 upload_max_filesize
 post_max_size 
 
-com ctrl+w e aumente para 128mb cada
+dengan ctrl + w dan meningkat menjadi 128mb
 
-• Para procurar o php.ini mais facil utilize esse comando
+• Untuk mencari php.ini, gunakan perintah ini
 
 nano `locate -r 'php.ini$'`
 
-Pronto parabéns pela compra do Melhor Painel SSH Disponivel:
+Siap membeli Panel SSH terbaik yang tersedia:
 
-Sistemas implementados
+Sistem diterapkan
 SubRevenda
-Todas as Paginas Revisadas
-Novo Design
-Instalador Automatico
-Suporte a OPENVPN
-Tickets de suporte e Muito mais !
+Semua Halaman Direvisi
+Desain Baru
+Penginstal Otomatis
+Dukungan OPENVPN
+Dukungan Tiket dan Lagi!
 
-Correçao adicionar servidor em branco
+Perbaiki add server dengan warna putih
 
 apt-get install libssh2-php && /etc/init.d/apache2 restart
 
