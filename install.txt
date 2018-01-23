@@ -38,7 +38,12 @@ service apache2 restart
 
 • Sekarang oleh Pengelola Folder Bitvise atau Manajer VPS yang Anda gunakan kembali ke / root:
 • Arahkan ke folder / var / www / html dan lewati file dari situs Folder Situs
-
+apt-get -y install git
+cd /var/www/html
+git init
+git remote add origin https://github.com/fandy2014/PanelSSH.git
+git pull origin master
+chmod 777 /home/vps/public_html/application/config/database.php
 
 • Lanjutkan hanya setelah pesan DILENGKAPI KESUKSESAN. (dalam kasus instalasi otomatis)
 
