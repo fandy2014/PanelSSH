@@ -38,6 +38,12 @@ cd /var/www/html
 git init
 git remote add origin https://github.com/fandy2014/PanelSSH.git
 git pull origin master
+/
+
+cd /var/www/html
+apt-get install unzip -y
+unzip painelssh.zip
+rm painelssh.zip index.html
 
 • Lanjutkan hanya setelah pesan DILENGKAPI KESUKSESAN. (dalam kasus instalasi otomatis)
 
